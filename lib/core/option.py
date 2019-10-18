@@ -82,6 +82,7 @@ def ScriptRegister(args):
             if os.path.isfile(input_path):
                 if input_path.endswith('.py'):
                     conf.MODULE_NAME = os.path.split(input_path)[-1]
+                    conf.MODULE_PATH = os.path.split(input_path)[0]
                     conf.MODULE_FILE_PATH = os.path.abspath(input_path)
                 else:
                     msg = '[%s] not a Python file. Example: [-s spider] or [-s ./script/spider.py]' % input_path
