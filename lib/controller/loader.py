@@ -20,7 +20,7 @@ def loadModule():
     msg = 'Load custom script: %s' % _name
     logger.success(msg)
 
-    fp, pathname, description = imp.find_module(os.path.splitext(_name)[0], [paths.SCRIPT_PATH])
+    fp, pathname, description = imp.find_module(os.path.splitext(_name)[0], [paths.SCRIPT_PATH, conf.MODULE_PATH])
     try:
         th.module_obj = imp.load_module("_", fp, pathname, description)
         for each in ESSENTIAL_MODULE_METHODS:
